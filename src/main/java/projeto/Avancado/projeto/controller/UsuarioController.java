@@ -4,6 +4,7 @@ import lombok.Data;
 import org.springframework.web.bind.annotation.*;
 import projeto.Avancado.projeto.model.Usuario;
 import projeto.Avancado.projeto.repository.UsuarioRepository;
+import projeto.Avancado.projeto.service.UsuarioService;
 
 import java.util.List;
 
@@ -12,31 +13,31 @@ import java.util.List;
 @RequestMapping("usuario")
 public class UsuarioController {
 
-    private final UsuarioRepository usuarioRepository;
+    private final UsuarioService usuarioService;
 
     @GetMapping
     public List<Usuario> buscarTodos(){
-        return usuarioRepository.findAll();
+        return usuarioService.buscarTodos();
     }
 
     @GetMapping("{id}")
     public Usuario buscarPorId(@PathVariable String id){
-        return usuarioRepository.findById(id).orElse(null);
+        return usuarioService.buscarPorId(id);
     }
 
     @PostMapping
     public Usuario criar(@RequestBody Usuario usuario){
-        return usuarioRepository.save(usuario);
+        return usuarioService.criar(usuario);
     }
 
     @PutMapping("{id}")
-    public Usuario atualizar(@PathVariable String id, @RequestBody Usuario usuario){
-        return usuarioRepository.findById(id).orElse(null);
+    public Usuario atualizarPorId(@PathVariable String id, @RequestBody Usuario usuario){
+        return usuarioService.atualizarPorId(id, usuario);
     }
 
     @DeleteMapping("{id}")
     public void deletarPorId(@PathVariable String id){
-        usuarioRepository.deleteById(id);
+        usuarioService.deletarPorId(id);
     }
 
 }
