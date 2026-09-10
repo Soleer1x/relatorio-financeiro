@@ -1,10 +1,7 @@
 package projeto.Avancado.projeto.model;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -20,6 +17,7 @@ public class Usuario {
 
     private String nome;
 
+    @Column(unique = true)
     private String email;
 
     private String senha;

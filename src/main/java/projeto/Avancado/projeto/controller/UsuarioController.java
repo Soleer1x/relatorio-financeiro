@@ -39,5 +39,4 @@ public class UsuarioController {
     public void deletarPorId(@PathVariable String id){
         usuarioService.deletarPorId(id);
     }
-
 }
