@@ -4,10 +4,9 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.time.LocalDateTime;
-
 @Data
 @Entity
+@Table(name = "usuarios")
 @JsonPropertyOrder({"id", "nome" , "email" , "senha"})
 public class Usuario {
 
