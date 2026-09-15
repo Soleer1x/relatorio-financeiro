@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Relatório Financeiro</title>
+
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+<body>
+
+<div class="login-container">
+
+    <h1>Relatório Financeiro</h1>
+
+    <form th:action="@{/}" method="post">
+
+        <input
+                type="email"
+                name="email"
+                placeholder="E-mail"
+                required>
+
+        <input
+                type="password"
+                name="senha"
+                placeholder="Senha"
+                required>
+
+        <button type="submit">
+            Entrar
+        </button>
+
+    </form>
+
+    <a th:href="@{/cadastro}">
+        Criar uma conta
+    </a>
+
+</div>
+
+</body>
+</html>
